@@ -6,6 +6,7 @@ public class WorldController : MonoBehaviour {
 
     public float worldSpeed = 1;
 
+    public GameObject currentObstacle;
     public GameObject[] roadTiles = new GameObject[27];
 
     // Use this for initialization
@@ -29,6 +30,17 @@ public class WorldController : MonoBehaviour {
                 pos.z = 240;
                 roadTiles[i].transform.position = pos;
             }
+        }
+
+        
+
+        if (currentObstacle.transform.position.z <= -240)
+        {
+            currentObstacle.SetActive(false);
+        }
+        else
+        {
+            currentObstacle.transform.position += new Vector3(0, 0, -worldSpeed);
         }
 
     }
