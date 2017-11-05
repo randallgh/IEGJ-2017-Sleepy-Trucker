@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Slapper : MonoBehaviour {
-    public float cooldownDuration;
-    public float samplesPerSecond;
-    public float velocityThreshold;
-    public int amountOfSamples;
+    public float cooldownDuration = 1;
+    public float samplesPerSecond = 50;
+    public float velocityThreshold = 0.4f;
+    public int amountOfSamples = 10;
     public List<float> DistanceSamples;
-    public float proximityThreshold;
+    public float proximityThreshold = 0.3f;
 
     private float nextSamplingTime = 0.0f;
     private bool cooldown;
@@ -61,6 +61,7 @@ public class Slapper : MonoBehaviour {
                 if (CheckVelocity())
                 {
                     Debug.Log("BITCHSLAP!");
+                    StartCooldown();
                 }
             }
         }
@@ -74,7 +75,7 @@ public class Slapper : MonoBehaviour {
         {
             return true;
             //Debug.Log("FAST");
-            //StartCooldown();
+            
         } else
         {
             return false;

@@ -37,9 +37,9 @@ public class Wheel : MonoBehaviour, Grabbable {
 	void Update () {
         if (!held)
         {
-            Debug.Log("Rotating");
+            //Debug.Log("Rotating");
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0,0,0), 100f * Time.deltaTime);
-            Debug.Log(transform.rotation.z);
+            //Debug.Log(transform.rotation.z);
         }
     }
 
