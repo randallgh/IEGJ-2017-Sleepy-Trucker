@@ -64,7 +64,7 @@ public class Wheel : MonoBehaviour, Grabbable {
 
             incomingHand.SetGrabbableObject(gameObject);
 
-            Debug.Log("Entered one of the wheel's triggers");
+            //Debug.Log("Entered one of the wheel's triggers");
             triggersActive++;
 
             if (triggersActive > 0)
@@ -91,7 +91,7 @@ public class Wheel : MonoBehaviour, Grabbable {
 
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Exited a wheel trigger");
+            //Debug.Log("Exited a wheel trigger");
             triggersActive--;
 
             if (triggersActive < 1)

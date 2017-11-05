@@ -39,6 +39,8 @@ public class Hand : MonoBehaviour {
 
     private float wheelAngleAtSteeringStart;
 
+    private float lastAngleAdjustment;
+
 
 
     public void SetGrabbableObject(GameObject NewGrabbableGO)
@@ -71,6 +73,8 @@ public class Hand : MonoBehaviour {
         // Debug only
         rend = HandCube.GetComponent<Renderer>();
         rend.material = green;
+
+        lastAngleAdjustment = 0;
 	}
 	
 	// Update is called once per frame
@@ -117,19 +121,24 @@ public class Hand : MonoBehaviour {
         float angle = Vector3.Angle(directionVector, transform.parent.up);
         float otherAngle = Vector3.Angle(directionVector, Vector3.up);
 
-        Debug.Log("Angle is " + angle + " and other angle is " + otherAngle);
+        //Debug.Log("Angle is " + angle + " and other angle is " + otherAngle);
         if (handPos.x < SteeredWheel.transform.position.x)
         {
             angle = 360 - angle;
         }
 
-        Debug.Log(" " + angle + " which means we move by " + (angle - wheelAngleAtSteeringStart));
+        //Debug.Log(" " + angle + " which means we move by " + (angle - wheelAngleAtSteeringStart));
 
         float angleAdjustment = angle - wheelAngleAtSteeringStart;
+
+        //Xander's code
+        lastAngleAdjustment = angleAdjustment;
 
         //SteeredWheel.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, angle);
 
         //WheelSpace.transform.rotation = Quaternion.Euler(WheelSpace.transform.rotation.x, WheelSpace.transform.rotation.y, -(angle - wheelAngleAtSteeringStart));
+
+        Debug.Log(angleAdjustment);
 
         SteeredWheel.transform.rotation = Quaternion.Euler(SteeredWheel.transform.rotation.x, 0, - angleAdjustment);
 
@@ -190,5 +199,19 @@ public class Hand : MonoBehaviour {
         HandCube.transform.SetParent(transform); //exp
         steering = false;
         SteeredWheel = null;
+    }
+
+    //Xander's functions
+    public bool IsClenched()
+    {
+        return clenched;
+    }
+    public float GetLastAngleAdjustment()
+    {
+        if (lastAngleAdjustment > 180)
+        {
+            lastAngleAdjustment = - (360 - lastAngleAdjustment);
+        }
+        return lastAngleAdjustment;
     }
 }
