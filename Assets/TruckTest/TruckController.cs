@@ -6,6 +6,8 @@ public class TruckController : MonoBehaviour {
 
     new Rigidbody rigidbody;
 
+    public GameObject steeringWheel;
+
     public float sideSpeed;
 
     KeyCode turnRight = KeyCode.D;
@@ -35,5 +37,6 @@ public class TruckController : MonoBehaviour {
             rigidbody.velocity = new Vector3(0, 0, 0);
         }
 
+        rigidbody.velocity = new Vector3(-steeringWheel.transform.rotation.z * sideSpeed, 0, 0);
     }
 }
