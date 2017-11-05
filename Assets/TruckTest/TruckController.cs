@@ -7,6 +7,7 @@ public class TruckController : MonoBehaviour {
     new Rigidbody rigidbody;
 
     public GameObject steeringWheel;
+    
 
     public float sideSpeed;
 
@@ -21,9 +22,12 @@ public class TruckController : MonoBehaviour {
     private float wheelAngle;
     private float lastAngle;
 
-	// Use this for initialization
-	void Start ()
+
+    private Wheel wheel;
+    // Use this for initialization
+    void Start ()
     {
+        wheel = steeringWheel.GetComponent<Wheel>();
         rigidbody = GetComponent<Rigidbody>();
         wheelAngle = 0;
         lastAngle = 0;
@@ -46,13 +50,10 @@ public class TruckController : MonoBehaviour {
         //}
         //Debug.Log(steeringWheel.transform.rotation.z);
 
-<<<<<<< HEAD
-        if(rightHand.IsClenched() || leftHand.IsClenched())
-=======
-        if (rightHand.IsClenched())
->>>>>>> 2d03846d842aab8524e8f0068e7fa560e05f044a
+        if(wheel.GetSteered())
         {
-            wheelAngle = rightHand.GetLastAngleAdjustment();
+            wheelAngle = wheel.GetSteeringInput();
+            //wheelAngle = rightHand.GetLastAngleAdjustment();
         }
         else
         {
@@ -61,6 +62,9 @@ public class TruckController : MonoBehaviour {
 
         //rigidbody.velocity = new Vector3(steeringWheel.transform.rotation.z * -10, 0, 0);
         //rigidbody.velocity = new Vector3(wheelAngle * 0.5f, 0, 0);
-        transform.position += new Vector3((wheelAngle * 0.5f) * Time.deltaTime, 0, 0);
+        Vector3 newPosition = transform.position + new Vector3((wheelAngle * 0.5f) * Time.deltaTime, 0, 0);
+
+        transform.position = new Vector3(Mathf.Clamp(newPosition.x, -10, 10), newPosition.y, newPosition.z);
+        //transform.position += new Vector3((wheelAngle * 0.5f) * Time.deltaTime, 0, 0);
     }
 }
