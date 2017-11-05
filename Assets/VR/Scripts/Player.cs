@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    private static float wakefulness;
-    public static float maxWakefulness;
+    private float wakefulness;
+    public float maxWakefulness;
     public float maxWakefulnessToSet = 100;
     public float decreasePerSecond;
     public float startingWakefulness;
     public bool discreteDecrease;
     private float nextDecreaseTime;
 
-    public static void IncreaseWakefullness(float increase)
+    public void IncreaseWakefullness(float increase)
     {
         wakefulness = Mathf.Clamp(wakefulness + increase, 0, maxWakefulness);
     }
 
-    public static void DecreaseWakefulness(float decrease)
+    public void DecreaseWakefulness(float decrease)
     {
         wakefulness = Mathf.Clamp(wakefulness - decrease, 0, maxWakefulness);
     }
 
-    public static float GetWakefulness()
+    public float GetWakefulness()
     {
         return wakefulness;
     }
@@ -54,14 +54,14 @@ public class Player : MonoBehaviour {
             {
 
                 DecreaseWakefulness(decreasePerSecond);
-                Debug.Log("wakefulness decreased");
+                //Debug.Log("wakefulness decreased");
                 nextDecreaseTime = Time.time + 1;
-                Debug.Log("Current Wakefullness after decrease " + wakefulness);
+                //Debug.Log("Current Wakefullness after decrease " + wakefulness);
             }
         } else
         {
             DecreaseWakefulness(decreasePerSecond * Time.deltaTime);
-            Debug.Log("Current Wakefullness after decrease " + wakefulness);
+            //Debug.Log("Current Wakefullness after decrease " + wakefulness);
         }
         
         

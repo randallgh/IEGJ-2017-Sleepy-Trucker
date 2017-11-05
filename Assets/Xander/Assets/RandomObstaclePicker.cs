@@ -7,37 +7,42 @@ public class RandomObstaclePicker : MonoBehaviour {
     public GameObject[] obstacles;
     //public WakefulnessScript wakefulness;
 
-    private GameObject currentObstacle;
+    public GameObject currentObstacle;
+
+    public Player player;
 
 	// Use this for initialization
 	void Start () {
-        currentObstacle = null;
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if(currentObstacle == null)
+		if(!currentObstacle.activeInHierarchy)
         {
-            while(currentObstacle == null)
+            while(!currentObstacle.activeInHierarchy)
             {
                 int objRoll = Random.Range(0, obstacles.Length);
-                //if(wakefulness.wakefulness <= obstacles[objRoll].GetComponent<ObstacleScript>().maxWakefulness)
-                //{
-                //    currentObstacle = Instantiate(obstacles[objRoll]);
+                if (player.GetWakefulness() <= obstacles[objRoll].GetComponent<ObstacleScript>().maxWakefulness)
+                {
+                    //currentObstacle = Instantiate(obstacles[objRoll]);
 
-                //    int realRoll = Random.Range(1, 101);
-                //    if(realRoll > wakefulness.wakefulness + currentObstacle.GetComponent<ObstacleScript>().realChanceMod)
-                //    {
-                //        Destroy(currentObstacle.GetComponent<Collider>());
-                //    }
+                    int realRoll = Random.Range(1, 101);
+                    if (realRoll > player.GetWakefulness() + currentObstacle.GetComponent<ObstacleScript>().realChanceMod)
+                    {
+                        Destroy(currentObstacle.GetComponent<Collider>());
+                    }
 
-                //    //Set the initial position
-                //}
+                    currentObstacle.SetActive(true);
+                    currentObstacle.transform.position = new Vector3(currentObstacle.transform.position.x, currentObstacle.transform.position.y, 250);
+                    //Set the initial position
+                    //SSet the object 
+                }
             }
         }
 
         //update the position of the obstacle
+        //This will be updated in the worldController
 
         //if the obstacle is beyond a certain point, get rid of it
 	}
