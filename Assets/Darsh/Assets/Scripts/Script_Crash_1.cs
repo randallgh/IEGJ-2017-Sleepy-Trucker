@@ -13,9 +13,16 @@ public class Script_Crash_1 : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        crashSource.clip = crashClip;
-        crashSource.Play();
+        if (other.gameObject.tag == "Obstacle")
+        {
+            crashSource.clip = crashClip;
+            crashSource.Play();
+
+            Debug.Log("Game Over");
+            //Game over here
+        }
     }
 }

@@ -32,21 +32,25 @@ public class TruckController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //if (Input.GetKey(turnRight))
-        //{
-        //    rigidbody.velocity = new Vector3(sideSpeed, 0, 0);
-        //}
-        //else if (Input.GetKey(turnLeft))
-        //{
-        //    rigidbody.velocity = -new Vector3(sideSpeed, 0, 0);
-        //}
+        if (Input.GetKey(turnRight))
+        {
+
+        }
+        else if (Input.GetKey(turnLeft))
+        {
+
+        }
         //else
         //{
         //    rigidbody.velocity = new Vector3(0, 0, 0);
         //}
         //Debug.Log(steeringWheel.transform.rotation.z);
 
+<<<<<<< HEAD
         if(rightHand.IsClenched() || leftHand.IsClenched())
+=======
+        if (rightHand.IsClenched())
+>>>>>>> 2d03846d842aab8524e8f0068e7fa560e05f044a
         {
             wheelAngle = rightHand.GetLastAngleAdjustment();
         }

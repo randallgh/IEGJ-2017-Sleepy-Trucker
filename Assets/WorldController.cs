@@ -32,7 +32,7 @@ public class WorldController : MonoBehaviour {
             }
         }
 
-        if (currentObstacle != null && currentObstacle.transform.position.z <= -240)
+        if (currentObstacle != null && currentObstacle.transform.position.z <= -100)
         {
             Destroy(currentObstacle);
         }

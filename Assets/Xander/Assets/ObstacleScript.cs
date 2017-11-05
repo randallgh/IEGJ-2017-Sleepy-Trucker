@@ -6,5 +6,6 @@ public class ObstacleScript : MonoBehaviour {
 
     public float maxWakefulness = 100;
     public float realChanceMod = 0;
+    public float visibilityCap = 0;
 
 }
