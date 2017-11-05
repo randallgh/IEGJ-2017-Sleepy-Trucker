@@ -22,10 +22,8 @@ GameObject:
   - component: {fileID: 33738185205773650}
   - component: {fileID: 136615516565983208}
   - component: {fileID: 23438593717327002}
-  - component: {fileID: 82872809796008604}
-  - component: {fileID: 114695700826097234}
   - component: {fileID: 82689441024520756}
-  - component: {fileID: 114244017281981610}
+  - component: {fileID: 114785023841180224}
   m_Layer: 0
   m_Name: RadioButton
   m_TagString: RadioButton
@@ -167,87 +165,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &82872809796008604
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1829541643453418}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9c8a953cacc94514b9b3da53643b331a, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
---- !u!114 &114244017281981610
+--- !u!114 &114785023841180224
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -255,7 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1829541643453418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ef22f6ba37c284448b03688a45c808e, type: 3}
+  m_Script: {fileID: 11500000, guid: c73a9f1cade5bfb4fb9fa5fd33e25a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radio:
@@ -272,31 +190,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fcabdfaf37328d74d9c87b93cb8213bb, type: 3}
   - {fileID: 8300000, guid: ec8be94db9a21b545887c9bb8d67745b, type: 3}
   numberOfStations: 12
---- !u!114 &114695700826097234
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1829541643453418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ef22f6ba37c284448b03688a45c808e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radio:
-  - {fileID: 8300000, guid: 29961046a6c89374da280a54a75eed5e, type: 3}
-  - {fileID: 8300000, guid: a147614157d0fe147b519230aacbd8b2, type: 3}
-  - {fileID: 8300000, guid: 2c0a480d1c9a2444890daf84745aedf8, type: 3}
-  - {fileID: 8300000, guid: aa3d70916787894459c2f641ca3c2006, type: 3}
-  - {fileID: 8300000, guid: 8c5fa83906d4852498dc8f223a2e3b80, type: 3}
-  - {fileID: 8300000, guid: c0f78f641c0f1bf4590dde66efdc6c03, type: 3}
-  - {fileID: 8300000, guid: ed0f90341baf15244900db457f21f39c, type: 3}
-  - {fileID: 8300000, guid: 9c8a953cacc94514b9b3da53643b331a, type: 3}
-  - {fileID: 8300000, guid: 38613caa87cb87843817dd8f90e3a0d7, type: 3}
-  - {fileID: 8300000, guid: 7e2b958df40a77642b5e6b44db021382, type: 3}
-  - {fileID: 8300000, guid: fcabdfaf37328d74d9c87b93cb8213bb, type: 3}
-  - {fileID: 8300000, guid: ec8be94db9a21b545887c9bb8d67745b, type: 3}
-  numberOfStations: 12
+  creepyStations: 4
 --- !u!136 &136615516565983208
 CapsuleCollider:
   m_ObjectHideFlags: 1
