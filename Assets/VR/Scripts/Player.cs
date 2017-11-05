@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    [SerializeField]
     private float wakefulness;
+
     public float maxWakefulness;
     public float maxWakefulnessToSet = 100;
     public float decreasePerSecond;

@@ -47,6 +47,11 @@ public class RandomObstaclePicker : MonoBehaviour {
         //update the position of the obstacle
         //This will be updated in the worldController
 
+        if ( player.GetWakefulness() >= currentObstacle.GetComponent<ObstacleScript>().visibilityCap)
+        {
+            Destroy(currentObstacle);
+        }
+
         //if the obstacle is beyond a certain point, get rid of it
         //Done in world controlelr
 	}

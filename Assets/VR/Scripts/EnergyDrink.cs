@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnergyDrink : MonoBehaviour, Grabbable {
     
+    public Player player;
 
     public Material yellow;
     public Material red;
@@ -35,7 +36,10 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
 	void Update () {
         if (held)
         {
-            CheckIfDrinking();
+            if (CheckIfDrinking())
+            {
+                player.IncreaseWakefullness(30);
+            }
         }
 	}
 
