@@ -46,7 +46,7 @@ public class TruckController : MonoBehaviour {
         //}
         //Debug.Log(steeringWheel.transform.rotation.z);
 
-        if(rightHand.IsClenched())
+        if(rightHand.IsClenched() || leftHand.IsClenched())
         {
             wheelAngle = rightHand.GetLastAngleAdjustment();
         }
