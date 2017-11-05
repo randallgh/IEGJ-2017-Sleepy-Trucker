@@ -167,7 +167,8 @@ public class Hand : MonoBehaviour {
 
     public void StartSteering(GameObject WheelGO)
     {
-        transform.SetParent(WheelGO.transform);
+        //transform.SetParent(WheelGO.transform);
+        HandCube.transform.SetParent(WheelGO.transform);
         steering = true;
         SteeredWheel = WheelGO;
 
@@ -184,7 +185,9 @@ public class Hand : MonoBehaviour {
 
     public void StopSteering()
     {
-        transform.SetParent(originalParent); //exp
+        HandCube.transform.position = transform.position;
+        HandCube.transform.rotation = transform.rotation;
+        HandCube.transform.SetParent(transform); //exp
         steering = false;
         SteeredWheel = null;
     }

@@ -9,6 +9,8 @@ public class Wheel : MonoBehaviour, Grabbable {
     private List<Hand> HandsTouching = new List<Hand>();
     private List<Hand> HandsHolding = new List<Hand>();
     private bool held;
+
+    //private Vector3 ReleasedRotation = new Vector3(0, 0, 0);
     
 
     // Debug only
@@ -33,8 +35,13 @@ public class Wheel : MonoBehaviour, Grabbable {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (!held)
+        {
+            Debug.Log("Rotating");
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0,0,0), 100f * Time.deltaTime);
+            Debug.Log(transform.rotation.z);
+        }
+    }
 
     void CheckForGrabbing()
     {
@@ -115,7 +122,7 @@ public class Wheel : MonoBehaviour, Grabbable {
         {
             grabberHand.StartSteering(gameObject);
             HandsHolding.Add(grabberHand);
-            grabberHand.transform.SetParent(transform.parent); //exp
+            //grabberHand.transform.SetParent(transform.parent); //exp
             if (!held)
             {
                 BecomeHeld();
@@ -155,7 +162,16 @@ public class Wheel : MonoBehaviour, Grabbable {
         {
             rend.material = white;
         }
+
+        //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        //ReleasedRotation = transform.rotation.eulerAngles;
+        
     }
 
-    
+    public bool GetSteered()
+    {
+        return held;
+    }
+
+
 }
