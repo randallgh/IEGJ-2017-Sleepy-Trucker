@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Script_RadioController_5 : MonoBehaviour {
+public class Script_RadioController_5000 : MonoBehaviour {
 
     //AudioSource audioSource;
     public AudioClip[] radio;
