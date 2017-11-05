@@ -23,6 +23,7 @@ public class Hand : MonoBehaviour {
 
     private bool steering; // When steering, the movement is restricted to a radius
     private GameObject SteeredWheel;
+    private Wheel wheel;
 
     private Grabbable GrabbableObject;
     private Grabbable HeldObject;
@@ -134,6 +135,10 @@ public class Hand : MonoBehaviour {
         //Xander's code
         lastAngleAdjustment = angleAdjustment;
 
+
+
+        //Debug.Log("Hand thinks it's " + angleAdjustment);
+
         //SteeredWheel.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, angle);
 
         //WheelSpace.transform.rotation = Quaternion.Euler(WheelSpace.transform.rotation.x, WheelSpace.transform.rotation.y, -(angle - wheelAngleAtSteeringStart));
@@ -142,7 +147,15 @@ public class Hand : MonoBehaviour {
 
         SteeredWheel.transform.rotation = Quaternion.Euler(SteeredWheel.transform.rotation.x, 0, - angleAdjustment);
 
-        
+
+
+        if (lastAngleAdjustment > 180)
+        {
+            Debug.Log("ADJUSTING!!!!!!!!!!!!!!");
+            lastAngleAdjustment = -(360 - lastAngleAdjustment);
+        } 
+
+        wheel.SetSteeringInput(lastAngleAdjustment);
 
         //GhostCube.position = directionVector.normalized * .5f;
     }
@@ -180,6 +193,7 @@ public class Hand : MonoBehaviour {
         HandCube.transform.SetParent(WheelGO.transform);
         steering = true;
         SteeredWheel = WheelGO;
+        wheel = SteeredWheel.GetComponent<Wheel>();
 
         Vector3 handPos = TrackingAnchor.position;
         Vector3 flattenedPos = new Vector3(handPos.x, handPos.y, SteeredWheel.transform.position.z);
@@ -206,6 +220,7 @@ public class Hand : MonoBehaviour {
     {
         return clenched;
     }
+
     public float GetLastAngleAdjustment()
     {
         if (lastAngleAdjustment > 180)

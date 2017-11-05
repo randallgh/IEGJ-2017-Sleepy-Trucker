@@ -9,6 +9,7 @@ public class Wheel : MonoBehaviour, Grabbable {
     private List<Hand> HandsTouching = new List<Hand>();
     private List<Hand> HandsHolding = new List<Hand>();
     private bool held;
+    private float steeringInput;
 
     //private Vector3 ReleasedRotation = new Vector3(0, 0, 0);
     
@@ -32,6 +33,11 @@ public class Wheel : MonoBehaviour, Grabbable {
         rend = WheelMesh.GetComponent<Renderer>();
         rend.material = white;
 	}
+
+    public void SetSteeringInput(float newInput)
+    {
+        steeringInput = newInput;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -40,6 +46,10 @@ public class Wheel : MonoBehaviour, Grabbable {
             //Debug.Log("Rotating");
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0,0,0), 100f * Time.deltaTime);
             //Debug.Log(transform.rotation.z);
+        } else
+        {
+            //Debug.Log("Rot " + transform.rotation.z * 100);
+            //Debug.Log(steeringInput);
         }
     }
 
@@ -173,5 +183,12 @@ public class Wheel : MonoBehaviour, Grabbable {
         return held;
     }
 
+    public float GetSteeringInput()
+    {
+        //float finalSteering = - (transform.rotation.z * 100);
+        //Debug.Log("FINAL STEERING " + finalSteering);
+        //return finalSteering;
+        return steeringInput;
+    }
 
 }
