@@ -50,7 +50,11 @@ public class TruckController : MonoBehaviour {
         //}
         //Debug.Log(steeringWheel.transform.rotation.z);
 
-        if(wheel.GetSteered())
+
+        
+
+        if (wheel.GetSteered())
+
         {
             wheelAngle = wheel.GetSteeringInput();
             //wheelAngle = rightHand.GetLastAngleAdjustment();
