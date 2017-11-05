@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 19a736a217f11824d9a6b9850a6e4b15
-timeCreated: 1509916733
+guid: 173cbfe976ed4d44a9421922dde9804b
+timeCreated: 1509916646
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCube2
+    100002: pTorus2
     400000: //RootNode
-    400002: pCube2
-    2300000: pCube2
-    3300000: pCube2
-    4300000: pCube2
+    400002: pTorus2
+    2300000: pTorus2
+    3300000: pTorus2
+    4300000: pTorus2
   materials:
     importMaterials: 1
     materialName: 0

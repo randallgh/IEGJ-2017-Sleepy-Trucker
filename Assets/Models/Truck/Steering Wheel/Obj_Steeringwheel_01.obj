@@ -1,6 +1,6 @@
 # This file uses centimeters as units for non-parametric coordinates.
 
-mtllib Obj_Steeringwheel_02.mtl
+mtllib Obj_Steeringwheel_01.mtl
 g default
 v 724.484802 0.000000 -194.125015
 v 649.555298 0.000000 -375.020813
@@ -975,7 +975,7 @@ vn -0.435265 0.788092 -0.435265
 vn -0.615558 0.788091 -0.000000
 s 1
 g pTorus2
-usemtl blinn2SG
+usemtl initialShadingGroup
 f 2/2/1 1/1/2 25/26/3 26/27/4
 f 3/3/5 2/2/1 26/27/4 27/28/6
 f 4/4/7 3/3/5 27/28/6 28/29/8
