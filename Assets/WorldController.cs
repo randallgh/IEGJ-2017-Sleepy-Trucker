@@ -22,11 +22,11 @@ public class WorldController : MonoBehaviour {
     {
         for (int i = 0; i < roadTiles.Length; i++)
         {
-            roadTiles[i].transform.position += new Vector3(-worldSpeed,0,0);
-            if (roadTiles[i].transform.position.x <= -260)
+            roadTiles[i].transform.position += new Vector3(0,0, -worldSpeed);
+            if (roadTiles[i].transform.position.z <= -260)
             {
                 Vector3 pos = roadTiles[i].transform.position;
-                pos.x = 240;
+                pos.z = 240;
                 roadTiles[i].transform.position = pos;
             }
         }

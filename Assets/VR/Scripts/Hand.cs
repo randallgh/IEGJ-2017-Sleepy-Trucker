@@ -130,7 +130,10 @@ public class Hand : MonoBehaviour {
         //SteeredWheel.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, angle);
 
         //WheelSpace.transform.rotation = Quaternion.Euler(WheelSpace.transform.rotation.x, WheelSpace.transform.rotation.y, -(angle - wheelAngleAtSteeringStart));
-        SteeredWheel.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, - (angle - wheelAngleAtSteeringStart));
+
+        SteeredWheel.transform.rotation = Quaternion.Euler(SteeredWheel.transform.rotation.x, 0, - angleAdjustment);
+
+        
 
         //GhostCube.position = directionVector.normalized * .5f;
     }
