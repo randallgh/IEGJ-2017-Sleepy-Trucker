@@ -6,7 +6,7 @@ public class Script_RadioController_5 : MonoBehaviour {
 
     //AudioSource audioSource;
     public AudioClip[] radio;
-    public const int numberOfStations = 12; //change this to match the number of radio stations you have
+    public const int numberOfStations = 8; //change this to match the number of radio stations you have
     float[] radioPointsArray = new float[numberOfStations]; //Used to assign points to the radio stations
     private AudioSource radioSource;
     int audioIncrement = 0;
@@ -28,7 +28,16 @@ public class Script_RadioController_5 : MonoBehaviour {
             }
         }
     }
-    private void OnCollisionEnter(Collision collision) //Change collision to also work with VR
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            playRadio();
+        }
+    }
+
+    void playRadio()
     {
         if (audioIncrement < numberOfStations)
         {
@@ -40,7 +49,7 @@ public class Script_RadioController_5 : MonoBehaviour {
                 if (radioPointsArray[audioIncrement] > 0)
                 {
                     radioPointsArray[audioIncrement] = radioPointsArray[audioIncrement] - 1f;
-                    Debug.Log("Talk Radio " + audioIncrement +" Effectiveness: " + radioPointsArray[audioIncrement]);
+                    Debug.Log("Talk Radio " + audioIncrement + " Effectiveness: " + radioPointsArray[audioIncrement]);
                 }
                 else
                 {
@@ -76,5 +85,17 @@ public class Script_RadioController_5 : MonoBehaviour {
         {
             audioIncrement = 0;
         }
+    } 
+
+    private void OnTriggerEnter(Collider collider) //Change collision to also work with VR
+    {
+        Debug.Log("RAIDO TRIGGERED");
+        playRadio();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("RAIDO COLLIDED");
+        playRadio();
     }
 }
