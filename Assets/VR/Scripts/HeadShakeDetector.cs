@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HeadShakeDetector : MonoBehaviour {
-    public float cooldownDuration;
-    public float samplesPerSecond;
-    public float rotationThreshold;
-    public int amountOfSamples;
+    public float cooldownDuration = 1;
+    public float samplesPerSecond = 20;
+    public float rotationThreshold = 2.2f;
+    public int amountOfSamples = 20;
     public List<float> RotationSamples;
 
     private float nextSamplingTime = 0.0f;

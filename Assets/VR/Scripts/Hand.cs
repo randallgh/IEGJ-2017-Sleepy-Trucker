@@ -138,7 +138,7 @@ public class Hand : MonoBehaviour {
 
         //WheelSpace.transform.rotation = Quaternion.Euler(WheelSpace.transform.rotation.x, WheelSpace.transform.rotation.y, -(angle - wheelAngleAtSteeringStart));
 
-        Debug.Log(angleAdjustment);
+        //Debug.Log(angleAdjustment);
 
         SteeredWheel.transform.rotation = Quaternion.Euler(SteeredWheel.transform.rotation.x, 0, - angleAdjustment);
 

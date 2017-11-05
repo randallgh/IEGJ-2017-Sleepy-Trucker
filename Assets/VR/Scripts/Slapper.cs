@@ -60,7 +60,7 @@ public class Slapper : MonoBehaviour {
             {
                 if (CheckVelocity())
                 {
-                    Debug.Log("BITCHSLAP!");
+                    Debug.Log("SLAP!");
                     StartCooldown();
                 }
             }
