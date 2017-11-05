@@ -22,18 +22,18 @@ public class RandomObstaclePicker : MonoBehaviour {
             while(currentObstacle == null)
             {
                 int objRoll = Random.Range(0, obstacles.Length);
-                if(wakefulness.wakefulness <= obstacles[objRoll].GetComponent<ObstacleScript>().maxWakefulness)
-                {
-                    currentObstacle = Instantiate(obstacles[objRoll]);
+                //if(wakefulness.wakefulness <= obstacles[objRoll].GetComponent<ObstacleScript>().maxWakefulness)
+                //{
+                //    currentObstacle = Instantiate(obstacles[objRoll]);
 
-                    int realRoll = Random.Range(1, 101);
-                    if(realRoll > wakefulness.wakefulness + currentObstacle.GetComponent<ObstacleScript>().realChanceMod)
-                    {
-                        Destroy(currentObstacle.GetComponent<Collider>());
-                    }
+                //    int realRoll = Random.Range(1, 101);
+                //    if(realRoll > wakefulness.wakefulness + currentObstacle.GetComponent<ObstacleScript>().realChanceMod)
+                //    {
+                //        Destroy(currentObstacle.GetComponent<Collider>());
+                //    }
 
-                    //Set the initial position
-                }
+                //    //Set the initial position
+                //}
             }
         }
 

@@ -24,11 +24,11 @@ public class TruckController : MonoBehaviour {
     {
         if (Input.GetKey(turnRight))
         {
-            rigidbody.velocity = -new Vector3(0, 0, sideSpeed);
+            rigidbody.velocity = new Vector3(sideSpeed, 0, 0);
         }
         else if (Input.GetKey(turnLeft))
         {
-            rigidbody.velocity = new Vector3(0, 0, sideSpeed);
+            rigidbody.velocity = -new Vector3(sideSpeed, 0, 0);
         }
         else
         {
