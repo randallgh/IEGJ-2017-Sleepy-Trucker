@@ -28,7 +28,7 @@ public class RandomObstaclePicker : MonoBehaviour {
                 if (player.GetWakefulness() <= obstacles[objRoll].GetComponent<ObstacleScript>().maxWakefulness)
                 {
                     currentObstacle = Instantiate(obstacles[objRoll]);
-                    currentObstacle.transform.position = new Vector3(0, 1, 250);
+                    currentObstacle.transform.position = new Vector3(Random.Range(-7,7), currentObstacle.transform.position.y, 250);
                     
                     int realRoll = Random.Range(1, 101);
 
