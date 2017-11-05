@@ -6,7 +6,7 @@ public class Script_RadioController_5 : MonoBehaviour {
 
     //AudioSource audioSource;
     public AudioClip[] radio;
-    public static int numberOfStations = 12; //change this to match the number of radio stations you have
+    public const int numberOfStations = 12; //change this to match the number of radio stations you have
     float[] radioPointsArray = new float[numberOfStations]; //Used to assign points to the radio stations
     private AudioSource radioSource;
     int audioIncrement = 0;
@@ -30,8 +30,9 @@ public class Script_RadioController_5 : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision collision) //Change collision to also work with VR
     {
-        if (audioIncrement < numberOfStations) //change this number if you want to add more stations.
+        if (audioIncrement < numberOfStations)
         {
+            Debug.Log("Array Index: " + audioIncrement);
             radioSource.clip = radio[audioIncrement];
             if (audioIncrement % 2 != 0)//talk radio is on odd numbers starting from 1, last array elements are creepy
             {
@@ -55,7 +56,7 @@ public class Script_RadioController_5 : MonoBehaviour {
                     radioSource.Stop();
                 }
             }
-            else //If not an odd number, play music
+            else //If not an even number, play music
             {
                 radioSource.time = 0.0f;
                 if (radioPointsArray[audioIncrement] > 0)
@@ -74,7 +75,6 @@ public class Script_RadioController_5 : MonoBehaviour {
         else
         {
             audioIncrement = 0;
-            OnCollisionEnter(collision);
         }
     }
 }
