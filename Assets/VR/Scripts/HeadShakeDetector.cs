@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HeadShakeDetector : MonoBehaviour {
+
+    public Player player;
+
     public float cooldownDuration = 1;
     public float samplesPerSecond = 20;
     public float rotationThreshold = 2.2f;
@@ -50,6 +53,7 @@ public class HeadShakeDetector : MonoBehaviour {
 
                 if (DetermineSampleRange() >= rotationThreshold)
                 {
+                    player.IncreaseWakefullness(5);
                     Debug.Log("SHAKING");
                     StartCooldown();
                 }

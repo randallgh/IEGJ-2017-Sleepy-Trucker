@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Slapper : MonoBehaviour {
+
+    public Player player;
+
     public float cooldownDuration = 1;
     public float samplesPerSecond = 50;
     public float velocityThreshold = 0.4f;
@@ -60,6 +63,7 @@ public class Slapper : MonoBehaviour {
             {
                 if (CheckVelocity())
                 {
+                    player.IncreaseWakefullness(10);
                     Debug.Log("SLAP!");
                     StartCooldown();
                 }
