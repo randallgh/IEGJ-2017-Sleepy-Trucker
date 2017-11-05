@@ -32,16 +32,19 @@ public class WorldController : MonoBehaviour {
             }
         }
 
-        
-
-        if (currentObstacle.transform.position.z <= -240)
+        if (currentObstacle != null && currentObstacle.transform.position.z <= -240)
         {
-            currentObstacle.SetActive(false);
+            Destroy(currentObstacle);
         }
-        else
+        else if (currentObstacle != null)
         {
             currentObstacle.transform.position += new Vector3(0, 0, -worldSpeed);
         }
 
+    }
+
+    public void setCurrentObstacle(GameObject thing)
+    {
+        currentObstacle = thing;
     }
 }
