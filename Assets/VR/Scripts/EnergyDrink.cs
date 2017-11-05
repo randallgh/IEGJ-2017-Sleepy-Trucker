@@ -8,7 +8,11 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
     public Material yellow;
     public Material red;
     public Material white;
-   
+
+    public Transform TrackingAnchor;
+    public float drinkingProximity;
+
+    private Vector3 drinkingPosition;
 
     private Rigidbody rigidbod;
     private bool held;
@@ -17,6 +21,7 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
     private Renderer rend;
     private Vector3 previousPos;
     private Vector3 currentPos;
+    private float distanceToHead;
 
 	// Use this for initialization
 	void Start () {
@@ -28,8 +33,26 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if (held)
+        {
+            CheckIfDrinking();
+        }
 	}
+
+    private bool CheckIfDrinking()
+    {
+        drinkingPosition = TrackingAnchor.position + new Vector3(0, -0.05f, 0.1f);
+
+        distanceToHead = Vector3.Distance(transform.position, drinkingPosition);
+        if (distanceToHead < drinkingProximity)
+        {
+           
+            Debug.Log("DRINKING");
+            return true;
+        }
+
+        return false;
+    }
 
     private void FixedUpdate()
     {

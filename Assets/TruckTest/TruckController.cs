@@ -56,6 +56,7 @@ public class TruckController : MonoBehaviour {
         }
 
         //rigidbody.velocity = new Vector3(steeringWheel.transform.rotation.z * -10, 0, 0);
-        rigidbody.velocity = new Vector3(wheelAngle * 0.5f, 0, 0);
+        //rigidbody.velocity = new Vector3(wheelAngle * 0.5f, 0, 0);
+        transform.position += new Vector3((wheelAngle * 0.5f) * Time.deltaTime, 0, 0);
     }
 }
