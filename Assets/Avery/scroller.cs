@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class scroller : MonoBehaviour
 {
+    static bool seenCredits = false;
     public float Speed;
 
     private void Start()
@@ -20,5 +21,16 @@ public class scroller : MonoBehaviour
         {
             y = Time.deltaTime * Speed
         });
+
+        if (seenCredits)
+        {
+            Application.LoadLevel(0);
+        }
+
+        if (Time.timeSinceLevelLoad > 10)
+        {
+            seenCredits = true;
+            Application.LoadLevel(0);
+        }
     }
 }

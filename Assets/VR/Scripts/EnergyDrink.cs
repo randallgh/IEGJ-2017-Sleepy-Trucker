@@ -6,10 +6,6 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
     
     public Player player;
 
-    public Material yellow;
-    public Material red;
-    public Material white;
-
     public Transform TrackingAnchor;
     public float drinkingProximity;
 
@@ -19,7 +15,6 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
     private bool held;
     private Transform originalParent;
     private bool highlighted;
-    private Renderer rend;
     private Vector3 previousPos;
     private Vector3 currentPos;
     private float distanceToHead;
@@ -29,7 +24,6 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
         currentPos = transform.position;
         originalParent = transform.parent;
         rigidbod = GetComponent<Rigidbody>();
-        rend = GetComponent<Renderer>();
 	}
 	
 	// Update is called once per frame
@@ -87,7 +81,7 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
         highlighted = true;
 
         // Debug
-        rend.material = yellow;
+        //rend.material = yellow;
     }
 
     void GetDehighlighted()
@@ -95,7 +89,7 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
         highlighted = false;
 
         // Debug
-        rend.material = white;
+        //rend.material = white;
     }
 
     public void GetGrabbed(Hand grabbingHand)
@@ -105,7 +99,7 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
         rigidbod.isKinematic = true;
 
         // Debug
-        rend.material = red;
+        //rend.material = red;
     }
 
     public void GetDropped(Hand droppingHand)
@@ -130,10 +124,10 @@ public class EnergyDrink : MonoBehaviour, Grabbable {
 
         if (highlighted)
         {
-            rend.material = yellow;
+            //rend.material = yellow;
         } else
         {
-            rend.material = white;
+            //rend.material = white;
         }
 
     }

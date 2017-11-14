@@ -22,6 +22,7 @@ public class Script_Crash_1 : MonoBehaviour {
             crashSource.Play();
 
             Debug.Log("Game Over");
+            Application.LoadLevel(1);
             //Game over here
         }
     }
